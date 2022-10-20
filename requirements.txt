@@ -1,0 +1,8 @@
+fastapi
+pydantic
+torch
+transformers
+numpy
+lemmagen3
+uvicorn
+sentencepiece
