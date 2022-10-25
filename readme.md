@@ -52,4 +52,5 @@ To test the server, try sending a POST request using curl:
 
 
 ---
-> Operacijo Razvoj slovenščine v digitalnem okolju sofinancirata Republika Slovenija in Evropska unija iz Evropskega sklada za regionalni razvoj. Operacija se izvaja v okviru Operativnega programa za izvajanje evropske kohezijske politike v obdobju 2014-2020.
+> Operacijo Razvoj slovenščine v digitalnem okolju sofinancirata Republika Slovenija in Evropska unija iz Evropskega sklada za regionalni razvoj. Operacija se izvaja v okviru Operativnega programa za izvajanje evropske kohezijske politike v obdobju 2014-2020. 
+> ![RSDO](https://github.com/RSDO-DS3/RSDO-wsd/blob/main/Logo_EKP_sklad_za_regionalni_razvoj_SLO_slogan.jpg?raw=true)
