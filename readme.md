@@ -1,4 +1,4 @@
-V tem repozitoriju se nahaja rezultat aktivnosti A3.3 - R3.2.3 Orodje za ekstrakcijo povezav, ki je nastalo v okviru projekta Razvoj slovenščine v digitalnem okolju.
+V tem repozitoriju se nahaja rezultat aktivnosti A3.3 - Orodje za razdvoumljanje, ki je nastalo v okviru projekta Razvoj slovenščine v digitalnem okolju.
 
 ---
 
