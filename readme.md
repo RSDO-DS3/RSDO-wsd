@@ -12,7 +12,7 @@ This repository contains the code for the WSD api. It is split into two main com
 # Training and evaluating the model
 `train_and_evaluate_model.py` contains the code for training and evaluating the model. Running the file will train and evaluate a model on data from the `elexis-wsd-sl_corpus.tsv` (https://www.clarin.si/repository/xmlui/handle/11356/1674), located in `./data/`. We use a Camembert token prediction model to train the WSD model (Martin, Louis, et al. "CamemBERT: a Tasty French Language Model." ACL 2020-58th Annual Meeting of the Association for Computational Linguistics. 2020.). This requires the pretrained sloberta2 model (https://www.clarin.si/repository/xmlui/handle/11356/1397), which should be placed inside `./data/sloberta2`.
 
-The model currently achieves a classification accuracy of .45 when evaluated on the elexis-wsd-sl test set and we are currently in the process of improving the model to achieve better results.
+The model currently achieves a classification accuracy of 0.45 when evaluated on the elexis-wsd-sl test set and we are currently in the process of improving the model to achieve better results.
 
 By default, the model requires pytorch with GPU acceleration using CUDA (https://pytorch.org/get-started/locally/).
 
