@@ -1,8 +1,8 @@
-fastapi
-pydantic
-torch
-transformers
-numpy
-lemmagen3
-uvicorn
-sentencepiece
+fastapi==0.85.0
+pydantic==1.7.4
+torch==1.12.1
+transformers==4.20.1
+numpy==1.19.5
+lemmagen3==3.3.2
+uvicorn==0.18.3
+sentencepiece==0.1.95
