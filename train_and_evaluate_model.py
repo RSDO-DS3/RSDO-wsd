@@ -20,7 +20,7 @@ from sklearn.utils import shuffle
 
 
 MAX_SEQ_LEN = 61
-NUM_EPOCHS = 5
+NUM_EPOCHS = 1
 
 
 
@@ -125,7 +125,7 @@ def read_elexis_wsd(filename):
     
 def expand_XY(X, Y):
     num_skipped = 0
-    device = torch.device("cuda")
+    device = torch.device("cpu")
     slo_tokenizer = CamembertTokenizer.from_pretrained('./data/sloberta2')
     ret_X = []
     ret_Y = []
@@ -195,12 +195,12 @@ def get_ma_dict_vectors(sent, location, sense, lemma, device, config, slo_tokeni
     
     
 def compare_to_ma_dict(sskj_sent, ma_dict, sskj_y, lem_sl):
-    device = torch.device("cuda")
+    device = torch.device("cpu")
     config = CamembertConfig.from_pretrained('./data/sloberta2')
     slo_tokenizer = CamembertTokenizer.from_pretrained('./data/sloberta2')
     config.is_decoder=True
     encoder = CamembertForCausalLM.from_pretrained('./data/sloberta2', config=config)
-    encoder.to(device = torch.device("cuda"))
+    encoder.to(device = torch.device("cpu"))
     sskj_words = sskj_sent.split(" ")
     sskj_words_lemmas = [lem_sl.lemmatize(w) for w in sskj_words]
     sskj_sent_lemmas = " ".join(sskj_words_lemmas)
@@ -281,11 +281,13 @@ max_len = 0
 for y in Y_new:
     if len(y) > max_len:
         max_len = len(y)
+
+"""
 for y in Y_ma_new:
     if len(y) > max_len:
         max_len = len(y)
 print(max_len)
-
+"""
 
 
 
@@ -321,7 +323,7 @@ model_seq = CamembertForTokenClassification.from_pretrained('./data/sloberta2', 
 
 model.train()
 model_seq.train()
-device = torch.device("cuda")
+device = torch.device("cpu")
 #device = torch.device("cpu")
 model.to(device)
 model_seq.to(device)
@@ -376,7 +378,8 @@ for epoch in range(NUM_EPOCHS):
         optimizer.step()
         del loss
         gc.collect()
-        torch.cuda.ipc_collect()
+        
+        #torch.cuda.ipc_collect()
     torch.save(model_seq.state_dict(), './wsd_model.ckpt')
 
     model_seq.eval()

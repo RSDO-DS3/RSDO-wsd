@@ -30,7 +30,7 @@ class InputJSON(BaseModel):
     text: str
     
 ########## MODELS ##########
-device = torch.device("cuda")
+device = torch.device("cpu")
 config = CamembertConfig.from_pretrained('./data/sloberta2')
 model_seq = CamembertForTokenClassification.from_pretrained('./data/sloberta2', num_labels=28)
 model_seq.load_state_dict(torch.load('./data/wsd_model.ckpt'))
