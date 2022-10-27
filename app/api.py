@@ -33,7 +33,7 @@ class InputJSON(BaseModel):
 device = torch.device("cpu")
 config = CamembertConfig.from_pretrained('./data/sloberta2')
 model_seq = CamembertForTokenClassification.from_pretrained('./data/sloberta2', num_labels=28)
-model_seq.load_state_dict(torch.load('./data/wsd_model.ckpt', map_location=torch.device('cpu')))
+model_seq.load_state_dict(torch.load('./data/wsd_model.ckpt'))
 model_seq.to(device)
 
 lem_sl = Lemmatizer('sl')
