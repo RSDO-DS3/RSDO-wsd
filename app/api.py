@@ -111,13 +111,11 @@ async def qa(input: InputJSON):
                                return_tensors="pt").to(device)
     #print(test_encodings)
     preds = model_seq(**test_encodings)
-    preds = preds.logits.tolist()
+    preds = torch.nn.functional.softmax(preds.logits, dim=2).tolist()
     sent_pred = np.argmax(preds[0], axis=1)
     sent_score = np.max(preds[0], axis=1)
     words = slo_tokenizer.tokenize(sent)
     ret_list = []
-    print(words)
-    print(preds)
     curr_word = ""
     curr_preds = []
     curr_scores = []
