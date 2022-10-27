@@ -23,7 +23,7 @@ The code for the WSD api is located in ./app/api.py. To build the docker contain
 2. A trained wsd model, which should be placed inside ./data and named wsd_model.ckpt
 3. A sense inventory. Currently, we use elexis-wsd-sl_sense-inventory.tsv, which should be placed inside ./data
 
-You can then build the container by running `docker build -t rsdo_wsd .`.  To start the API container, use the command `docker run --gpus all -d --name rsdo_wsd_container -p 80:80 rsdo_wsd`.
+You can then build the container by running `docker build -t rsdo_wsd .`.  To start the API container, use the command `docker run --gpus all -d --name rsdo_wsd -p 5009:80 rsdo_wsd` (GPU) or `docker run -d --name rsdo_wsd -p 5009:80 rsdo_wsd`.
 
 # Running the api locally
 To run the API locally: 
@@ -47,7 +47,7 @@ The api will return the following for each word:
 
 To test the server, try sending a POST request using curl:
 
-`curl -X POST -H "accept:application/json" -H "Content-Type:application/json" -d "{\"inventory\": \"DSB\", \"text\": \"Soba ima dvoje vrat.\" }" http://127.0.0.1:80/predict/wsd -L`
+`curl -X POST -H "accept:application/json" -H "Content-Type:application/json" -d "{\"inventory\": \"DSB\", \"text\": \"Soba ima dvoje vrat.\" }" http://127.0.0.1:5009/predict/wsd -L`
 
 
 
