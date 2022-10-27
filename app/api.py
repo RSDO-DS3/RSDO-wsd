@@ -14,9 +14,9 @@ def get_definition(lemma, sense_id):
         if str(sense_id) in definitions.keys():
             definition = definitions[str(sense_id)]
         else:
-            definition = "No definition"
+            definition = "Definicija ni bila najdena"
     else:
-        definition = "No lemma"
+        definition = "Definicija ni bila najdena"
     return definition
                 
     
@@ -130,10 +130,10 @@ async def qa(input: InputJSON):
                 curr_scores.append(sent_score[i])
             else:
                 lemma = lem_sl.lemmatize(curr_word[1:])
-                ret_list.append({"sense_id": str(curr_preds), 
+                ret_list.append({"sense_id": int(curr_preds[0]), 
                                  "word": curr_word[1:],
                                  "inventory": inventory,
-                                 "score": str(curr_scores),
+                                 "score": float(curr_scores[0]),
                                  "definition": get_definition(lemma, curr_preds[0]),
                                  "lemma": lemma})
                 curr_word = words[i]
@@ -147,10 +147,10 @@ async def qa(input: InputJSON):
         
     if curr_word != "":
         lemma = lem_sl.lemmatize(curr_word[1:])
-        ret_list.append({"sense_id": str(curr_preds), 
+        ret_list.append({"sense_id": int(curr_preds[0]), 
                                  "word": curr_word[1:],
                                  "inventory": inventory,
-                                 "score": str(curr_scores),
+                                 "score": float(curr_scores[0]),
                                  "definition": get_definition(lemma, curr_preds[0]),
                                  "lemma": lemma})
 
